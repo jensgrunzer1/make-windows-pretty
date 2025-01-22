@@ -17,11 +17,12 @@ jobs:
                 wget https://raw.githubusercontent.com/m1chaelwilliams/make-windows-pretty/refs/heads/main/private-build-plans.toml
           - name: Installing dependencies and building font
             run: |
+                cd Iosevka/
                 npm i
                 npm run build -- ttf::IosevkaCustom
           - name: Zipping font
             run: |
-                zip IosevekaCustom.zip /dist/IosevkaCustom/TTF
+                zip IosevekaCustom.zip /Iosevka/dist/IosevkaCustom/TTF
           - name: Create Release
             id: create_release
             uses: actions/create-release@v1
