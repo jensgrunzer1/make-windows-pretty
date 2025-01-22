@@ -9,11 +9,12 @@ jobs:
           - name: Installing Packages
             run: |
                 sudo apt update -y
-                sudo apt -y install nodejs npm git ttfautohint zip
+                sudo apt -y install nodejs npm git ttfautohint zip wget
           - name: Cloning Ioseveka git repo
             run: |
                 git clone --depth 1 https://github.com/be5invis/Iosevka.git
-                mv private-build-plans.toml Iosevka/
+                cd Iosevka/
+                wget https://raw.githubusercontent.com/m1chaelwilliams/make-windows-pretty/refs/heads/main/private-build-plans.toml
           - name: Installing dependencies and building font
             run: |
                 npm i
